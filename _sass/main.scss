@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+// Customization
+
+// You can easily customize Bulma with your own variables.
+// Just uncomment the following block to see the result.
+
+/*
+// 1. Import the initial variables
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+// 2. Set your own initial variables
+// Update the blue shade, used for links
+$blue: #06bcef;
+// Add pink and its invert
+$pink: #ff8080;
+$pink-invert: #fff;
+// Update the sans-serif font family
+$family-sans-serif: "Helvetica", "Arial", sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $pink;
+$primary-invert: $pink-invert;
+
+// 4. Import the rest of Bulma
+*/
+
+$primary: #D4AF37;
+$navbar-item-color: #FFFFFF;
+$navbar-item-hover-color: $primary;
+$navbar-item-active-color: $primary;
+$navbar-item-hover-background-color: transparent;
+$card-color: rgba(255, 255, 255, 0.13);
+$card-content-padding: 2rem;
+$card-radius: 30px;
+@import "../node_modules/bulma/bulma";
+
+.container{
+    padding: 0 15px;
+}
+
+header{
+    background-color: #000505;
+    .navbar{
+        padding-top: 1rem;
+        background: transparent;
+        & .navbar-item.is-active{
+            font-weight: 700;
+        }
+        .navbar-collapse{
+            flex-basis: 100%;
+            flex-grow: 1;
+            opacity: 0;
+            height: 0;
+            transition: .4s all ease-in-out;
+            .navbar-nav{
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                padding-left: 0;
+                margin-bottom: 0;
+                list-style: none;
+            }
+        }
+    }
+    section{
+        & .website-slogan{
+            @include until(1023px) {
+                padding-top: 2rem;
+                padding-right: 0;
+            }
+            color: #FFFFFF;
+            padding-right: 1rem;
+            .tagline{
+                font-weight: 600;
+                font-size: 65px;
+                line-height: 80px;
+                padding-bottom: 1.3rem;
+                @include until(550px) {
+                    font-size: 2.6rem; 
+                    line-height: 2.8rem;
+                    padding-bottom: .7rem;
+                }
+             }
+             p{
+                margin-bottom: 3rem;
+             }
+        }
+        .image-container {
+            height: 100%;
+            position: relative;
+            text-align: center;
+            display: flex;
+            justify-self: center;
+            img{
+                height: 100%;
+            }
+            // .curve-lines{
+            //     position: absolute;
+            //     bottom: 0;
+            //     right: 0;
+            // }
+        }
+    }
+}
+
+.content-body{
+    padding: 3rem 0;
+    background: linear-gradient(199.45deg, #A78516 -0.26%, #564201 95.27%);
+}
+
+.button.is-primary{
+    padding: 5px 20px;
+    border-radius: 29px;
+}
+.button.is-primary.outlined{
+    background-color: transparent;
+    border: 3px solid #D4AF37;
+    color: #D4AF37;
+    padding: 5px 30px;
+}
+.button.is-primary.size-medium{
+    padding: 5px 60px;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.13);
+    box-shadow: 55px 5px 50px rgba(0, 0, 0, 0.08);
+    color: #FFFFFF;
+    strong{
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 1.5rem;
+
+    }
+    p{
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.6);
+        @include until(500px) { font-size: 1rem; }
+    }
+}
+
+.feature-image{
+    height: 550px;
+    @include until(500px) { height: 400px; }
+    img{ height: 100%; }
+}
+.feature-svg{
+    height: 60px;
+    width: 60px;
+    aspect-ratio: 1;
+    background: #191C1C;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    margin-right: 1.2rem;
+    // img{
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: contain;
+    // }
+}
+
+.content-body{
+    .features{
+        .columns{ 
+            gap: 5rem;
+            @include until (768px){
+                &{
+                    margin-bottom: 3rem;
+                }
+                &:nth-child(odd){
+                    display: flex;
+                    flex-direction: column-reverse;
+                    gap: 0;
+                }
+            }
+            .feature-image{
+                text-align: center;
+            }
+            // .column:last-child{
+            //     @include until (768px){
+            //         margin: 0 auto;
+            //     }
+            // }
+        }
+    }
+}
+
+.benefits-section{
+    padding-top: 5rem;
+    hr{
+        height: 3px;
+        background-color: #000505;
+        width: 8%;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    }
+    p{
+        font-size: 16px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.banner{
+    background: linear-gradient(255.94deg, #D4AF37 -42.37%, #191C1C 95.78%);
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 20rem;
+    @include until(1023px) { margin-bottom: 10rem; }
+    @include until(550px) {
+        padding: 15px 10px;
+    }
+//     &:after{
+//         content: '';
+//         width: 30px;
+// height: 30px;
+// display: inline-block;
+//         background-image: url(../imgs/laptop-user.png);
+//     }
+    .columns{ 
+        margin-left: 0;
+        margin-right: 0;
+        gap: 0 !important;
+    }
+    .banner-text{
+        color: #FFFFFF;
+        h3{
+            font-weight: 600;
+            font-size: 62px;
+            line-height: 60px;
+            @include until(550px) {
+                font-size: 2.2rem; line-height: 2rem;
+            }
+        }
+        small{
+            font-weight: 500;
+            font-size: 16px;
+            display: block;
+            margin: 2rem 0;
+        }
+    }
+    .is-hidden-touch{
+        .banner-image{
+            display: flex;
+            align-items: baseline;
+            position: relative;
+            img{
+                position: absolute;
+                top: 10rem;
+                right: -2rem;
+                transform: scale(2.5);
+            }
+        }
+    }
+    .is-hidden-desktop{
+        
+    }
+}
+
+.partners{
+    padding-bottom: 6rem;
+    .columns{
+        gap: 0 !important;
+    }
+    .is-flex{
+        gap: 3rem;
+    }
+    h4{
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 48px;
+        color: #FFFFFF;
+        width: 80%;
+    }
+    @include until (1100px) {
+        .is-flex{ 
+            gap: 1rem;
+            &.outer{
+                flex-wrap: wrap;
+                .is-flex{ flex-basis: 100%; margin-bottom: 2rem; }
+            }
+         }
+        h4{ width: 100%; font-size: 26px; line-height: 38px; } 
+    }
+}
+
+.points-cto{
+    padding: 18rem 0 6rem;
+    .columns{ gap: 0 !important; }
+    .cto-wrapper{
+        background: rgba(255, 255, 255, 0.13);
+        border-radius: 35px;
+        padding: 1rem;
+        .inner-wrapper{
+            background: rgba(255,255, 255, 0.1);
+            color: #FFFFFF;
+            border-radius: 24px;
+            padding: 1rem;
+            .cto-desc{
+                @include from(769px) {
+                    padding: 0 2rem;
+                  }
+                img{
+                    margin-top: -200px;
+                }
+                h3{
+                    font-weight: 600;
+                    font-size: 48px;
+                    line-height: 56px;
+                }
+                p{
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    margin: 24px 0 32px 0;
+                }
+            }
+            .points-list{
+                padding: 2rem 0;
+                .is-flex{
+                    gap: 24px;
+                    padding-top: 2.3rem;
+                    padding-bottom: 2.3rem;
+                    border-bottom: 3px solid #7F640C;
+                    img{ height: 100%; }
+                    .point-desc h5{
+                        font-weight: 600;
+                        font-size: 20px;
+                        margin-bottom: 1rem;
+                    }
+                    &:first-child{
+                        padding-top: 0;
+                    }
+                    &:last-child{
+                        padding-bottom: 0;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    background-color: #000505;
+    .help-and-support{
+        background: #A78516;
+        border-radius: 35px;
+        text-align: center;
+        padding: 1.7rem;
+        margin: auto;
+        width: fit-content;
+        color: #FFFFFF;
+        position: relative;
+        top: -8rem;
+        @include until(600px){ width: 95%; }
+        .image-wrapper{
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            background-color: #000505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 15px;
+        }
+        p{ margin: 1rem auto; width: 70%; line-height: 24px; }
+    }
+    .brand-logo{ width: 30%; margin: auto; }
+    .social-links{
+        padding: 3rem 0 2.5rem;
+        .is-flex{ gap: 2rem; }
+    }
+    .menu-links{
+        color: #FFFFFF;
+        margin-bottom: 1rem;
+        @include until(700px){
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        span{ padding: 0 3rem; }
+    }
+}
